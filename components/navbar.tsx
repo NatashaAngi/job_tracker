@@ -1,3 +1,5 @@
+"use client"
+
 import { Briefcase, Ghost } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
@@ -7,11 +9,10 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel,
 import { Avatar, AvatarFallback } from './ui/avatar'
 import { signOut } from '@/lib/auth/auth'
 import SignOutButton from './sign-out'
+import { useSession } from '@/lib/auth/auth-client'
 
-async function NavBar() {
-
-    const session = await getSession()
-
+function NavBar() {
+ const {data:session} = useSession()
   return (
  
  
@@ -32,34 +33,33 @@ async function NavBar() {
                 
             <>
 
-                 <Link href="/dashboard">
                 <Button
-                  variant="ghost"
-                  className="text-gray-700 hover:text-black"
-                >
-                  Dashboard
-                </Button>
+                asChild
+                variant="ghost"
+                className="text-gray-700 hover:text-black text-2xl"
+              >
+                <Link href="/dashboard">Dashboard</Link>
+              </Button>
 
 
-              </Link>
 
               <DropdownMenu>
 
-                    <DropdownMenuTrigger>
-                        <Button variant="ghost">
-                            <Avatar>
-                                <AvatarFallback className='bg-primary text-white'>
-                                    {session.user.name[0].toUpperCase()}
-                                </AvatarFallback>
-                            </Avatar>
-                        </Button>
-                    </DropdownMenuTrigger>
+                    <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+                    <Avatar className="h-8 w-8">
+                      <AvatarFallback className='bg-primary text-white'>
+                        {session.user.name[0].toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
 
-                    <DropdownMenuContent>
-                        <DropdownMenuLabel>
-                            <div>
-                                <p>{session.user.name}</p>
-                                <p>{session.user.email}</p>
+                    <DropdownMenuContent className="w-56 h-30" align="end">
+                        <DropdownMenuLabel className="font-normal">
+                            <div className="flex flex-col space-y-1">
+                                <p className="text-3xl font-bold leading-none ">{session.user.name}</p>
+                                <p className="text-2xl leading-none text-muted-foreground">{session.user.email}</p>
                             </div>
 
                         </DropdownMenuLabel>

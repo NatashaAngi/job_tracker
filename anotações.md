@@ -12,10 +12,10 @@ Ainda precisa ser feito um footer, as paginas de login, cadastro e o dashboard.
 
 
 
-12/03/2026 - Eu parei em 01:50:42
+12/03/2026 - Eu parei em 01:53:58
 
-Ele vai mudar o nav bar para um client component.
+Nav bar alterado para client 
 
-Oque foi feito hoje? Criação das paginas de login e criação de conta, funcionando 100% com autenticação via better auth, as contas estão sendo armazenadas no mongdb.
+Oque foi feito hoje? Criação das paginas de login e criação de conta, funcionando 100% com autenticação via better auth, as contas estão sendo armazenadas no mongdb. NavBar modificada para use client. Criação do logout, 100% funcional. 
 
-Falta criar o logout e o dashboard
+Falta dashboard.

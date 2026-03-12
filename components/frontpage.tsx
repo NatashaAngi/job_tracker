@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ArrowRight, Briefcase, CheckCircle2, TrendingUp } from 'lucide-react'
 import Image from "next/image";
 import { useState } from "react";
-import FrontFeatures from './front-features';
+
 
 function Frontpage() {
   const [activeTab, setActiveTab] = useState ("organize")

@@ -19,3 +19,9 @@ Nav bar alterado para client
 Oque foi feito hoje? Criação das paginas de login e criação de conta, funcionando 100% com autenticação via better auth, as contas estão sendo armazenadas no mongdb. NavBar modificada para use client. Criação do logout, 100% funcional. 
 
 Falta dashboard.
+
+13/03/2026 - Eu parei em 03:43:57 
+
+Criado proxy de segurança para impedir o acesso ao dashboard sem login, impedir que o login seja encerrado quando colocar na url /sign-in ou /sign-out. Criado estilos do dashboad, e a modelagem do banco de dados.
+
+Parei no momento em que ele ia falar sobre cache. 

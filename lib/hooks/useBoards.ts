@@ -9,17 +9,10 @@ export function useBoard(initialBoard?: Board | null) {
   const [columns, setColumns] = useState<Column[]>(initialBoard?.columns || []);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (initialBoard) {
-      setBoard(initialBoard);
-      setColumns(initialBoard.columns || []);
-    }
-  }, [initialBoard]);
-
   async function moveJob(
     jobApplicationId: string,
     newColumnId: string,
-    newOrder: number
+    newOrder: number,
   ) {
     setColumns((prev) => {
       const newColumns = prev.map((col) => ({
@@ -34,13 +27,13 @@ export function useBoard(initialBoard?: Board | null) {
 
       for (const col of newColumns) {
         const jobIndex = col.jobApplications.findIndex(
-          (j) => j._id === jobApplicationId
+          (j) => j._id === jobApplicationId,
         );
         if (jobIndex !== -1 && jobIndex !== undefined) {
           jobToMove = col.jobApplications[jobIndex];
           oldColumnId = col._id;
           col.jobApplications = col.jobApplications.filter(
-            (job) => job._id !== jobApplicationId
+            (job) => job._id !== jobApplicationId,
           );
           break;
         }
@@ -48,7 +41,7 @@ export function useBoard(initialBoard?: Board | null) {
 
       if (jobToMove && oldColumnId) {
         const targetColumnIndex = newColumns.findIndex(
-          (col) => col._id === newColumnId
+          (col) => col._id === newColumnId,
         );
         if (targetColumnIndex !== -1) {
           const targetColumn = newColumns[targetColumnIndex];

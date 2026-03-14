@@ -11,7 +11,7 @@ const db = client.db()
 
 export const auth = betterAuth({
   
-    database: mongodbAdapter(db,{client,}), emailAndPassword:{enabled: true}, 
+    database: mongodbAdapter(db,{client,}), session:{cookieCache:{enable:true, maxAge:60*60}},emailAndPassword:{enabled: true}, 
     databaseHooks:{
         user:{
         create:{ after: async (user)=> {
